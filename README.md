@@ -1,16 +1,14 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+  <img src="docs/assets/chroniq-logo.png" width="300" alt="Chroniq" />
 </div>
 
-# Run and deploy your AI Studio app
+# Chroniq
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/bc0ec4ff-f3af-4ae2-8044-3cba28850995
-
-## Download the app
+Date-specific precision alarm app with multi-date scheduling, full-screen lock-screen ringing, and automatic Google Calendar synchronization.
 
 [![Build APK](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml/badge.svg)](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml)
+
+## Download the app
 
 During development the version number stays fixed. Every push to `main` overwrites the same release, so this link always serves the newest build:
 
