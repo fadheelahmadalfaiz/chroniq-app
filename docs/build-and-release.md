@@ -44,3 +44,14 @@ STORE_PASSWORD=android KEY_PASSWORD=android ./gradlew :app:assembleRelease
 ```
 
 Output: `app/build/outputs/apk/release/app-release.apk`.
+
+## Known noise in CI logs
+
+KSP2 occasionally prints this on the AWT event thread while shutting down:
+
+```
+Exception in thread "AWT-EventQueue-0"
+java.lang.NullPointerException: Cannot invoke "...Application.getService(java.lang.Class)" ...
+```
+
+It is a shutdown race inside KSP2 when it runs under the in-process Kotlin compiler strategy, set in `gradle.properties`. It does not fail the build — the run still reports success and produces the APK.
