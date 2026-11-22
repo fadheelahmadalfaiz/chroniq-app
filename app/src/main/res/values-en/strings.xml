@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Chroniq</string>
+    <string name="app_tagline">Date Alarms &amp; Google Calendar</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_upcoming">Upcoming</string>
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_sync">Sync</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Home Screen Widget -->
+    <string name="widget_next_alarm_title">Next Alarm</string>
+    <string name="widget_next_alarm_desc">Displays only the nearest upcoming active alarm in Chroniq</string>
+    <string name="widget_empty_title">No active alarms</string>
+    <string name="widget_empty_subtitle">Tap to schedule an alarm in Chroniq</string>
+    <string name="widget_open_chroniq">Open Chroniq</string>
+
+    <!-- Main & List Screen -->
+    <string name="next_alarm_title">Next Alarm</string>
+    <string name="no_active_alarm">No upcoming active alarms</string>
+    <string name="no_active_alarm_subtitle">Create a date-specific alarm or sync your Google Calendar.</string>
+    <string name="add_alarm_cta">New Alarm</string>
+    <string name="filter_all">All</string>
+    <string name="filter_manual">Manual</string>
+    <string name="filter_gcal">Google Calendar</string>
+    <string name="filter_archived">Archived</string>
+    <string name="exact_alarm_permission_title">Exact Alarm Permission Required</string>
+    <string name="exact_alarm_permission_body">Enable exact alarms so Chroniq rings reliably on time even in Doze mode.</string>
+    <string name="grant_permission">Enable</string>
+    <string name="notification_permission_title">Allow Full-Screen Notifications</string>
+    <string name="notification_permission_body">Required so alarms can wake up your lock screen automatically.</string>
+
+    <!-- Alarm Actions -->
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_test_ring">Test Ring</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_sync_now">Sync Now</string>
+
+    <!-- Editor Screen -->
+    <string name="editor_create_title">Create Date Alarm</string>
+    <string name="editor_edit_title">Edit Date Alarm</string>
+    <string name="editor_label_hint">Example: Flight GA-402, Night Shift, Exam</string>
+    <string name="editor_label_title">Alarm Title</string>
+    <string name="editor_date_mode_single">Single Date</string>
+    <string name="editor_date_mode_multi">Multi-Date</string>
+    <string name="editor_date_mode_recurring">Recurring</string>
+    <string name="editor_error_past_time">Selected date and time is in the past. Pick a future time.</string>
+    <string name="editor_error_no_dates">Select at least one future date.</string>
+    <string name="editor_sound_title">Alarm Sound</string>
+    <string name="editor_vibrate_title">Vibrate</string>
+    <string name="editor_volume_title">Volume &amp; Fade-In</string>
+    <string name="editor_snooze_title">Snooze Duration</string>
+    <string name="editor_post_action_title">After Final Date Finishes</string>
+    <string name="post_action_archive">Auto Archive</string>
+    <string name="post_action_off">Turn Off</string>
+    <string name="post_action_delete">Auto Delete</string>
+
+    <!-- Calendar Screen -->
+    <string name="calendar_legend_manual">Manual Alarm</string>
+    <string name="calendar_legend_gcal">Google Calendar</string>
+    <string name="calendar_empty_day">No alarms scheduled on this date.</string>
+    <string name="calendar_add_on_date">Add Alarm on This Date</string>
+
+    <!-- Google Sync Screen -->
+    <string name="sync_screen_title">Google Calendar Sync</string>
+    <string name="sync_connect_google">Connect Google OAuth 2.0</string>
+    <string name="sync_connect_device">Sync Device Calendars</string>
+    <string name="sync_disconnect">Disconnect</string>
+    <string name="sync_token_expired_banner">Google Calendar session expired. Please reconnect your Google account.</string>
+    <string name="sync_calendars_section">Available Calendars (Multi-Calendar)</string>
+    <string name="sync_rules_section">Alarm Sync Rules</string>
+    <string name="sync_offset_title">Alarm Offset</string>
+    <string name="sync_filter_title">Event Filter</string>
+    <string name="sync_filter_all">Sync All Events</string>
+    <string name="sync_filter_keywords">Keyword Filter</string>
+    <string name="sync_all_day_ignore">Ignore All-Day Events</string>
+    <string name="sync_deleted_behavior_title">When Event Is Deleted in Google Calendar</string>
+    <string name="sync_deleted_disable">Disable Alarm</string>
+    <string name="sync_deleted_delete">Auto Delete Alarm</string>
+    <string name="sync_interval_title">Background Sync Interval (WorkManager)</string>
+    <string name="sync_offline_note">All alarms are stored locally (Offline-first) and will ring on time even when offline.</string>
+
+    <!-- Full-Screen Ringing Activity -->
+    <string name="ringing_slide_to_dismiss">Slide to Dismiss</string>
+    <string name="ringing_snooze_button">Snooze %1$d Min</string>
+    <string name="ringing_event_start_prefix">Event starts at %1$s</string>
+    <string name="ringing_source_gcal">Google Calendar</string>
+    <string name="ringing_source_manual">Date Alarm</string>
+
+    <!-- Notification Channels -->
+    <string name="channel_alarm_name">Full-Screen Alarm Ringing</string>
+    <string name="channel_alarm_desc">High-priority notifications for date and Google Calendar alarms</string>
+    <string name="channel_sync_name">Calendar Sync Status</string>
+    <string name="channel_sync_desc">Updates and token expiration notices for Google Calendar</string>
+</resources>

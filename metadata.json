@@ -1,0 +1,6 @@
+{
+  "name": "Chroniq",
+  "description": "Date-specific precision alarm app with multi-date scheduling, full-screen lock-screen ringing, and automatic Google Calendar synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

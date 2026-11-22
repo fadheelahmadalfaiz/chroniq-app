@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">Chroniq</string>
+    <string name="app_tagline">Alarm Tanggal &amp; Google Calendar</string>
+
+    <!-- Navigation Tabs -->
+    <string name="nav_upcoming">Mendatang</string>
+    <string name="nav_calendar">Kalender</string>
+    <string name="nav_sync">Sync</string>
+    <string name="nav_settings">Setelan</string>
+
+    <!-- Home Screen Widget -->
+    <string name="widget_next_alarm_title">Alarm Berikutnya</string>
+    <string name="widget_next_alarm_desc">Menampilkan satu alarm aktif terdekat dari Chroniq</string>
+    <string name="widget_empty_title">Tidak ada alarm aktif</string>
+    <string name="widget_empty_subtitle">Ketuk untuk menjadwalkan alarm di Chroniq</string>
+    <string name="widget_open_chroniq">Buka Chroniq</string>
+
+    <!-- Main & List Screen -->
+    <string name="next_alarm_title">Alarm Berikutnya</string>
+    <string name="no_active_alarm">Belum ada alarm tanggal aktif</string>
+    <string name="no_active_alarm_subtitle">Buat alarm tanggal spesifik atau hubungkan Google Calendar Anda.</string>
+    <string name="add_alarm_cta">Alarm Baru</string>
+    <string name="filter_all">Semua</string>
+    <string name="filter_manual">Manual</string>
+    <string name="filter_gcal">Google Calendar</string>
+    <string name="filter_archived">Arsip</string>
+    <string name="exact_alarm_permission_title">Izin Alarm Tepat Waktu Diperlukan</string>
+    <string name="exact_alarm_permission_body">Aktifkan izin alarm akurat agar dering 99,9% tepat waktu meski perangkat dalam mode Doze.</string>
+    <string name="grant_permission">Aktifkan</string>
+    <string name="notification_permission_title">Izinkan Notifikasi Layar Penuh</string>
+    <string name="notification_permission_body">Dibutuhkan agar alarm dapat membangunkan layar terkunci secara otomatis.</string>
+
+    <!-- Alarm Actions -->
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_archive">Arsipkan</string>
+    <string name="action_restore">Pulihkan</string>
+    <string name="action_test_ring">Uji Dering</string>
+    <string name="action_save">Simpan</string>
+    <string name="action_cancel">Batal</string>
+    <string name="action_sync_now">Sinkronkan Sekarang</string>
+
+    <!-- Editor Screen -->
+    <string name="editor_create_title">Buat Alarm Tanggal</string>
+    <string name="editor_edit_title">Edit Alarm Tanggal</string>
+    <string name="editor_label_hint">Contoh: Penerbangan GA-402, Shift Malam, Ujian</string>
+    <string name="editor_label_title">Label Alarm</string>
+    <string name="editor_date_mode_single">Tanggal Tunggal</string>
+    <string name="editor_date_mode_multi">Banyak Tanggal</string>
+    <string name="editor_date_mode_recurring">Berkala</string>
+    <string name="editor_error_past_time">Tanggal dan waktu yang dipilih sudah berlalu. Pilih waktu di masa depan.</string>
+    <string name="editor_error_no_dates">Pilih minimal satu tanggal masa depan.</string>
+    <string name="editor_sound_title">Nada Dering</string>
+    <string name="editor_vibrate_title">Getar</string>
+    <string name="editor_volume_title">Volume &amp; Fade-In</string>
+    <string name="editor_snooze_title">Durasi Tunda (Snooze)</string>
+    <string name="editor_post_action_title">Setelah Tanggal Terakhir Selesai</string>
+    <string name="post_action_archive">Arsipkan Otomatis</string>
+    <string name="post_action_off">Matikan Alarm</string>
+    <string name="post_action_delete">Hapus Otomatis</string>
+
+    <!-- Calendar Screen -->
+    <string name="calendar_legend_manual">Alarm Manual</string>
+    <string name="calendar_legend_gcal">Google Calendar</string>
+    <string name="calendar_empty_day">Tidak ada alarm terjadwal pada tanggal ini.</string>
+    <string name="calendar_add_on_date">Tambah Alarm di Tanggal Ini</string>
+
+    <!-- Google Sync Screen -->
+    <string name="sync_screen_title">Sinkronisasi Google Calendar</string>
+    <string name="sync_connect_google">Hubungkan Google OAuth 2.0</string>
+    <string name="sync_connect_device">Sinkronkan Kalender Perangkat</string>
+    <string name="sync_disconnect">Putuskan</string>
+    <string name="sync_token_expired_banner">Sesi Google Calendar kedaluwarsa. Silakan hubungkan ulang akun Google Calendar Anda.</string>
+    <string name="sync_calendars_section">Kalender Tersedia (Multi-Calendar)</string>
+    <string name="sync_rules_section">Aturan Sinkronisasi Alarm</string>
+    <string name="sync_offset_title">Waktu Pemicu (Alarm Offset)</string>
+    <string name="sync_filter_title">Filter Acara</string>
+    <string name="sync_filter_all">Sinkronkan Semua Acara</string>
+    <string name="sync_filter_keywords">Filter Kata Kunci</string>
+    <string name="sync_all_day_ignore">Abaikan Acara Sepanjang Hari (All-Day)</string>
+    <string name="sync_deleted_behavior_title">Jika Acara Dihapus di Google Calendar</string>
+    <string name="sync_deleted_disable">Nonaktifkan Alarm</string>
+    <string name="sync_deleted_delete">Hapus Alarm Otomatis</string>
+    <string name="sync_interval_title">Sinkronisasi Latar Belakang (WorkManager)</string>
+    <string name="sync_offline_note">Semua jadwal tersimpan lokal (Offline-first). Alarm tetap berbunyi tepat waktu walau perangkat sedang offline.</string>
+
+    <!-- Full-Screen Ringing Activity -->
+    <string name="ringing_slide_to_dismiss">Geser untuk Mematikan</string>
+    <string name="ringing_snooze_button">Tunda %1$d Menit</string>
+    <string name="ringing_event_start_prefix">Acara dimulai pukul %1$s</string>
+    <string name="ringing_source_gcal">Google Calendar</string>
+    <string name="ringing_source_manual">Alarm Tanggal</string>
+
+    <!-- Notification Channels -->
+    <string name="channel_alarm_name">Dering Alarm Layar Penuh</string>
+    <string name="channel_alarm_desc">Prioritas tinggi untuk dering alarm tanggal dan Google Calendar</string>
+    <string name="channel_sync_name">Status Sinkronisasi Kalender</string>
+    <string name="channel_sync_desc">Pemberitahuan pembaruan atau kedaluwarsa token Google Calendar</string>
+</resources>
