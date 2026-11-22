@@ -12,17 +12,17 @@ View your app in AI Studio: https://ai.studio/apps/bc0ec4ff-f3af-4ae2-8044-3cba2
 
 [![Build APK](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml/badge.svg)](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml)
 
-Grab the latest signed APK from the [releases page](https://github.com/fadheelahmadalfaiz/chroniq-app/releases/latest):
+During development the version number stays fixed. Every push to `main` overwrites the same release, so this link always serves the newest build:
 
-| Release | Download |
-| --- | --- |
-| v1.1.0 | [Chroniq-v1.1.0.apk](https://github.com/fadheelahmadalfaiz/chroniq-app/releases/download/v1.1.0/Chroniq-v1.1.0.apk) |
+**https://github.com/fadheelahmadalfaiz/chroniq-app/releases/download/latest/Chroniq-latest.apk**
+
+Tagged releases are kept separately: [all releases](https://github.com/fadheelahmadalfaiz/chroniq-app/releases).
 
 Install steps:
 
 1. Download the APK on your phone.
 2. Allow "Install unknown apps" for your browser or file manager when prompted.
-3. Open the APK and confirm the install.
+3. Open the APK and confirm the install. It installs over the previous build, so alarms stay intact.
 
 Android 7.0 (API 24) or newer is required. See [docs/build-and-release.md](docs/build-and-release.md) for how the APK is built and signed.
 

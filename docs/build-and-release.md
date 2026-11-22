@@ -8,11 +8,27 @@ The workflow does not use a Gradle wrapper, because the repo has no `gradlew`/`g
 
 ### Getting an installable APK
 
-1. Open the **Actions** tab → **Build APK** → pick a run.
-2. Download the `chroniq-apk-<sha>` artifact. It contains `Chroniq-v<version>.apk`.
-3. On the phone, allow "Install unknown apps" for the browser/file manager, then open the APK.
+Every push to `main` publishes (and overwrites) the `latest` release, so this URL always serves the newest build:
 
-Tagging a release publishes the APK as a GitHub Release asset instead of only an artifact:
+```
+https://github.com/fadheelahmadalfaiz/chroniq-app/releases/download/latest/Chroniq-latest.apk
+```
+
+Per-commit builds are also kept as workflow artifacts: **Actions** tab → **Build APK** → pick a run → `chroniq-apk-<sha>`.
+
+## Versioning
+
+`versionCode` and `versionName` in `app/build.gradle.kts` are not touched by CI. During development they stay at `1` / `1.1.0` so the numbers do not creep up.
+
+Android only rejects an install when the new `versionCode` is **lower** than the installed one. The same `versionCode` is accepted and replaces the app in place, so repeated debug builds install fine — as long as the signing key stays the same.
+
+Because the version never changes, builds are told apart by the commit SHA in the release notes.
+
+Before publishing to Google Play, bump `versionCode` (it must increase on every upload) and set a real `versionName`.
+
+## Tagged releases
+
+Tagging publishes the APK as a versioned GitHub Release asset instead of only a rolling build:
 
 ```bash
 git tag v1.1.0

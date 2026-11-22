@@ -103,6 +103,7 @@ jobs:
           set -euo pipefail
           VERSION="$(sed -n 's/^[[:space:]]*versionName = "\(.*\)"/\1/p' app/build.gradle.kts | head -n1)"
           VERSION="${VERSION:-0.0.0}"
+          VERSION_CODE="$(sed -n 's/^[[:space:]]*versionCode = \(.*\)/\1/p' app/build.gradle.kts | head -n1)"
           APK_SRC="$(find app/build/outputs/apk/release -maxdepth 1 -name '*.apk' | head -n1)"
           if [ -z "$APK_SRC" ]; then
             echo "No APK produced" >&2
@@ -110,8 +111,12 @@ jobs:
           fi
           APK_NAME="Chroniq-v${VERSION}.apk"
           cp "$APK_SRC" "$APK_NAME"
+          cp "$APK_SRC" Chroniq-latest.apk
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "version_code=${VERSION_CODE:-0}" >> "$GITHUB_OUTPUT"
           echo "apk=$APK_NAME" >> "$GITHUB_OUTPUT"
+          echo "apk_latest=Chroniq-latest.apk" >> "$GITHUB_OUTPUT"
+          echo "short_sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
           echo "size=$(du -h "$APK_NAME" | cut -f1)" >> "$GITHUB_OUTPUT"
           "$ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -n1)/apksigner" verify --print-certs "$APK_NAME" || true
 
@@ -119,10 +124,33 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: chroniq-apk-${{ github.sha }}
-          path: ${{ steps.package.outputs.apk }}
+          path: |
+            ${{ steps.package.outputs.apk }}
+            ${{ steps.package.outputs.apk_latest }}
           retention-days: 90
 
-      - name: Publish GitHub Release
+      - name: Publish rolling build
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: latest
+          name: Chroniq latest build
+          prerelease: false
+          make_latest: true
+          files: ${{ steps.package.outputs.apk_latest }}
+          body: |
+            Automated build from `main` at `${{ steps.package.outputs.short_sha }}`.
+
+            | Field | Value |
+            | --- | --- |
+            | versionName | `${{ steps.package.outputs.version }}` |
+            | versionCode | `${{ steps.package.outputs.version_code }}` |
+            | Commit | `${{ github.sha }}` |
+            | Run | [#${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+
+            Download `Chroniq-latest.apk` and install it over the previous build. The version number does not change while the app is in development, so always grab this file rather than an older one.
+
+      - name: Publish versioned release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v3
         with:
@@ -138,9 +166,10 @@ jobs:
             echo "| Field | Value |"
             echo "| --- | --- |"
             echo "| Version | \`${{ steps.package.outputs.version }}\` |"
+            echo "| versionCode | \`${{ steps.package.outputs.version_code }}\` |"
             echo "| File | \`${{ steps.package.outputs.apk }}\` |"
             echo "| Size | ${{ steps.package.outputs.size }} |"
             echo "| Signed | release keystore |"
             echo ""
-            echo "Download the APK from the workflow artifacts, then enable \"Install unknown apps\" on the phone to install it."
+            echo "Download \`Chroniq-latest.apk\` from [the latest build release](${{ github.server_url }}/${{ github.repository }}/releases/download/latest/Chroniq-latest.apk), then enable \"Install unknown apps\" on the phone to install it."
           } >> "$GITHUB_STEP_SUMMARY"
