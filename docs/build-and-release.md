@@ -41,7 +41,7 @@ git push origin v1.1.0
 
 Without secrets the workflow generates a throwaway keystore per run. That APK installs fine, but it cannot update an install signed by a different key — the user has to uninstall first.
 
-For stable, updateable builds add these repository secrets:
+The repository secrets are already configured:
 
 | Secret | Value |
 | --- | --- |
@@ -49,17 +49,24 @@ For stable, updateable builds add these repository secrets:
 | `KEYSTORE_STORE_PASSWORD` | Keystore password |
 | `KEYSTORE_KEY_PASSWORD` | Key password |
 
+The keystore itself lives **outside** the repository, in `chroniq-keys/` next to the project folder, together with `credentials.txt`. Back that folder up. If it is lost, every future build gets a different signature and users have to uninstall the app to update.
+
 Optional: `GEMINI_API_KEY` is written into `.env` at build time so the Secrets Gradle Plugin can package it.
 
 ## Local build
 
+`app/build.gradle.kts` reads the keystore from `$KEYSTORE_PATH` and defaults to `my-upload-key.jks` in the project root. Point it at the shared keystore:
+
 ```bash
-keytool -genkeypair -keystore my-upload-key.jks -alias upload -keyalg RSA -keysize 2048 \
-  -validity 10000 -storepass android -keypass android -dname "CN=Chroniq"
-STORE_PASSWORD=android KEY_PASSWORD=android ./gradlew :app:assembleRelease
+export KEYSTORE_PATH=/path/to/chroniq-keys/chroniq-upload.jks
+export STORE_PASSWORD=<store password>
+export KEY_PASSWORD=<key password>
+gradle :app:assembleRelease
 ```
 
 Output: `app/build/outputs/apk/release/app-release.apk`.
+
+A locally built APK is only interchangeable with the CI one when both use the same keystore.
 
 ## Known noise in CI logs
 
