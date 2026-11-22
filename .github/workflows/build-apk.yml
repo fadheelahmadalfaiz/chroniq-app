@@ -31,12 +31,14 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install SDK platform 36.1
-        run: sdkmanager --install "platforms;android-36.1"
-        continue-on-error: true
+      - name: Install Android SDK platform 36.1
+        run: |
+          SDKMANAGER="${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$SDKMANAGER" ]; then SDKMANAGER="$(command -v sdkmanager)"; fi
+          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+          "$SDKMANAGER" --install "platforms;android-36.1" || echo "Platform 36.1 not in the repo, AGP will provision it"
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME/platforms"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
