@@ -8,6 +8,24 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/bc0ec4ff-f3af-4ae2-8044-3cba28850995
 
+## Download the app
+
+[![Build APK](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml/badge.svg)](https://github.com/fadheelahmadalfaiz/chroniq-app/actions/workflows/build-apk.yml)
+
+Grab the latest signed APK from the [releases page](https://github.com/fadheelahmadalfaiz/chroniq-app/releases/latest):
+
+| Release | Download |
+| --- | --- |
+| v1.1.0 | [Chroniq-v1.1.0.apk](https://github.com/fadheelahmadalfaiz/chroniq-app/releases/download/v1.1.0/Chroniq-v1.1.0.apk) |
+
+Install steps:
+
+1. Download the APK on your phone.
+2. Allow "Install unknown apps" for your browser or file manager when prompted.
+3. Open the APK and confirm the install.
+
+Android 7.0 (API 24) or newer is required. See [docs/build-and-release.md](docs/build-and-release.md) for how the APK is built and signed.
+
 ## Run Locally
 
 **Prerequisites:**  [Android Studio](https://developer.android.com/studio)
